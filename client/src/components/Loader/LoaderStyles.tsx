@@ -14,6 +14,7 @@ export const StyledBouncingLoader = styled.div`
   width: 100%;
   position: absolute;
   align-items: center;
+  background: rgba(0, 0, 0, 0.5);
   z-index: 10;
   & > div {
     width: 1rem;

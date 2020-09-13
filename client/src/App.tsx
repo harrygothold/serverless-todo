@@ -85,23 +85,25 @@ const App: FC = () => {
     getTodos();
   }, []);
 
-  if (loading) return <Loader />;
-
   return (
     <>
       <GlobalStyle />
-      <StyledPageContainer>
-        <Form handleSubmit={handleSubmit} />
-        {todos.length > 0 &&
-          todos.map((todo) => (
-            <TodoItem
-              key={todo.ID}
-              {...todo}
-              updateItem={updateItem}
-              deleteItem={deleteItem}
-            />
-          ))}
-      </StyledPageContainer>
+      {loading ? (
+        <Loader />
+      ) : (
+        <StyledPageContainer>
+          <Form handleSubmit={handleSubmit} />
+          {todos.length > 0 &&
+            todos.map((todo) => (
+              <TodoItem
+                key={todo.ID}
+                {...todo}
+                updateItem={updateItem}
+                deleteItem={deleteItem}
+              />
+            ))}
+        </StyledPageContainer>
+      )}
     </>
   );
 };
